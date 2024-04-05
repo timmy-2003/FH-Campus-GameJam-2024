@@ -170,4 +170,12 @@ public class Golf_Cart_Control : MonoBehaviour
             rigidbody.MoveRotation(rigidbody.rotation * additional_vertical_rotation);
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Golfball")
+        {
+            Debug.Log("DEAD");
+        }
+    }
 }
