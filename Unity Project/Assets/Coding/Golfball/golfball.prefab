@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3152126824672203645}
   - component: {fileID: 6720437837582928572}
   - component: {fileID: -3912814567581213542}
+  - component: {fileID: -2249884611822124790}
   m_Layer: 0
   m_Name: golfball
   m_TagString: Golfball
@@ -125,5 +126,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d7d530e32adf5546912685a938303e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2249884611822124790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804786954997177528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c41ca91c3c86247abc24424b8c368f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
