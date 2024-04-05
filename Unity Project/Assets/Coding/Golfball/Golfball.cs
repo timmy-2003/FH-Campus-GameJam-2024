@@ -1,59 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Golfball : MonoBehaviour
 {
 
-    private float xVelocity;
-    private float timeSpentIdling = 0;
-    private float timeDisappearWhenIdle = 3;
-    private bool moveRight;
+    private float timeIdle = 0;
+    private float maxTimeIdle = 3;
+    private Vector3 position;
+    private Rigidbody rigidbody;
 
     void Start()
     {
-        xVelocity = Random.Range(0.02f, 0.05f);
-        if (Random.Range(1, 100) <= 50)
-        {
-            moveRight = true;
-        }
-        else
-        {
-            moveRight = false;
-        }
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (xVelocity != 0)
+        
+        if (shouldRemoveGolfball())
         {
-            move();
+            removeGolfball();
+        }
+    }
+
+    private void adjustVelocity()
+    {
+        float velocityX = Math.Abs(rigidbody.velocity.x) <= 0.07f ? 0 : rigidbody.velocity.x;
+        float velocityY = Math.Abs(rigidbody.velocity.y) <= 0.07f ? 0 : rigidbody.velocity.y;
+        float velocityZ = Math.Abs(rigidbody.velocity.z) <= 0.07f ? 0 : rigidbody.velocity.z;
+        rigidbody.velocity = new Vector3(velocityX, velocityY, velocityZ);
+    }
+
+    private bool shouldRemoveGolfball()
+    {
+        if (rigidbody.velocity == new Vector3(0, 0, 0))
+        {
+            timeIdle += Time.deltaTime;
         }
         else
         {
-            remove();
+            timeIdle = 0;
         }
-        
+        return timeIdle >= maxTimeIdle;
     }
 
-    private void move()
+    private void removeGolfball() {
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision other)
     {
-        float positionX = moveRight ? transform.position.x + xVelocity : transform.position.x - xVelocity;
-        transform.position = new Vector3(positionX, transform.position.y, transform.position.z);
-        if (xVelocity < 0.002f)
-        {
-            xVelocity = 0;
-        }
-    }
-
-    private void remove() {
-        Destroy(gameObject, 3);
-    }
-
-    void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Ground")
         {
-            xVelocity /= 2;
+            //rigidbody.velocity = new Vector3(rigidbody.velocity.x <= 0.02f ? 0 : rigidbody.velocity.x / 2f,
+              //  rigidbody.velocity.y, rigidbody.velocity.z);
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            rigidbody.velocity = new Vector3(rigidbody.velocity.x * 0.95f,
+                rigidbody.velocity.y * 0.95f, rigidbody.velocity.z * 0.95f);
         }
     }
 }

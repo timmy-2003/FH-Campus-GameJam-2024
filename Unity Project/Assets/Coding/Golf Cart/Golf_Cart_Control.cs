@@ -44,7 +44,7 @@ public class Golf_Cart_Control : MonoBehaviour
     void Start()
     {
         rigidbody = this.GetComponent<Rigidbody>();
-        camera_relative_position = camera_game_object.transform.position;
+        camera_relative_position = transform.position - camera_game_object.transform.position;
     }
     
     void Update()
@@ -58,7 +58,7 @@ public class Golf_Cart_Control : MonoBehaviour
             brake = false;
         }
 
-        camera_game_object.transform.position = camera_relative_position + transform.position;
+        camera_game_object.transform.position = transform.position - camera_relative_position;
     }
 
     public void FixedUpdate()
