@@ -19,6 +19,12 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetCar();
