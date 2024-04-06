@@ -19,6 +19,11 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetCar();
+        }
+
         if (GameIsFinished())
         {
             if (timerText != null)
@@ -49,6 +54,40 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    private void ResetCar()
+    {
+        // Reset car's position to initial position
+        golfCart.transform.position = new Vector3(66f, 0f, 12f);
+
+        // Reset car's rotation to zero
+        golfCart.transform.rotation = Quaternion.identity;
+
+        // Freeze the golf cart's movement and rotation
+        Rigidbody cartRigidbody = golfCart.GetComponent<Rigidbody>();
+        if (cartRigidbody != null)
+        {
+            cartRigidbody.velocity = Vector3.zero;
+            cartRigidbody.angularVelocity = Vector3.zero;
+            cartRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
+        // Unfreeze the golf cart's movement and rotation after 1 second
+        Invoke("UnfreezeCar", 1f);
+    }
+
+    private void UnfreezeCar()
+    {
+        // Unfreeze the golf cart's movement and rotation
+        Rigidbody cartRigidbody = golfCart.GetComponent<Rigidbody>();
+        if (cartRigidbody != null)
+        {
+            cartRigidbody.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+
+
+
     private void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -61,7 +100,6 @@ public class GameHandler : MonoBehaviour
 
     private IEnumerator PlayTimeOverSoundAndReloadLevel()
     {
-        Debug.Log("paly");
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(3f);
         ReloadLevel();
