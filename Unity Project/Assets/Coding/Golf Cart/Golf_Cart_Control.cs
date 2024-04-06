@@ -271,12 +271,12 @@ public class Golf_Cart_Control : MonoBehaviour
         beerPowerupDuration = 0;
     }
 
-    public void ApplyBoost(float boostMultiplier)
+    public void ApplyBoost(float boostMultiplier, Vector3 direction)
     {
         // Check if the Rigidbody component is available
         if (rigidbody != null)
         {
-            rigidbody.AddForce((rigidbody.transform.forward + new Vector3(0, 0.2f, 0)) * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
+            rigidbody.AddForce((direction) * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
         }
     }
 }
