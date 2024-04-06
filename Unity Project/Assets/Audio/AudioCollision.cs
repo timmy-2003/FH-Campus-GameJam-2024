@@ -20,7 +20,7 @@ public class AudioCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Golfcart")
         {
-            Debug.Log("Hit the water");
+            Debug.Log("Hit the sound!");
             GetComponent<AudioSource>().Play();
         }
     }
