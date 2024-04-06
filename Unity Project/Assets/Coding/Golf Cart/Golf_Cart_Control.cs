@@ -13,10 +13,11 @@ public class Axle_Info
 
 /*
 *If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
-*The steering, braking, and slipping has to be calibrated more precisely.
 *When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
 *(Also concerns the above;) When not all the four wheels are on the ground, the golf cart should be able to be rotated or flipped onto its four wheels again.
-*/
+*Currently the golf cart wheels are getting pressed into the ground.
+*The car should be able to be reset.
+ */
 
 public class Golf_Cart_Control : MonoBehaviour
 {
@@ -32,8 +33,10 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
+    public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
+    private float maxSlowDown = 250;
 
     private void Awake()
     {
@@ -55,32 +58,27 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brake = true;
-        }
-        else
-        {
-            brake = false;
-        }
+        Debug.Log(maximum_motor_torque);
+        Check_Wheels_Grounded();
+        Check_Brake_Input();
+        Check_Brake_Torque();
+        Check_Motor();
 
         if (beerPowerupEnabled)
         {
             beerPowerupDuration += Time.deltaTime;
             if (beerPowerupDuration >= 3)
             {
-                maximum_motor_torque = 400;
+                maximum_motor_torque = 200;
                 beerPowerupEnabled = false;
                 beerPowerupDuration = 0;
             }
         }
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
-        Check_Wheels_Grounded();
-        Check_Brake();
-        Check_Wheels();
+        Apply_Correction_Force();
         Check_Airborne_Rotation();
     }
 
@@ -108,7 +106,38 @@ public class Golf_Cart_Control : MonoBehaviour
         }
     }
 
-    private void Check_Brake()
+    private void Apply_Correction_Force()
+    {
+        foreach (Axle_Info axle_info in axle_infos)
+        {
+            if (!axle_info.left_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+            }
+            if (!axle_info.right_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
+            }
+        }
+        if (wheels_grounded == true)
+        {
+            rigidbody.AddForce(-this.transform.up * maximum_motor_torque, ForceMode.Force);
+        }
+    }
+
+    private void Check_Brake_Input()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            brake = true;
+        }
+        else
+        {
+            brake = false;
+        }
+    }
+
+    private void Check_Brake_Torque()
     {
         if (brake == true)
         {
@@ -139,7 +168,7 @@ public class Golf_Cart_Control : MonoBehaviour
         }
     }
 
-    private void Check_Wheels()
+    private void Check_Motor()
     {
         steer_angle = maximum_steer_angle * Input.GetAxis("Horizontal");
 
@@ -190,12 +219,32 @@ public class Golf_Cart_Control : MonoBehaviour
     {
         if (other.gameObject.tag == "Golfball")
         {
-            Debug.Log("DEAD");
+            //TODO
         }
         else if (other.gameObject.tag == "Beer")
         {
             GrantBeerPowerup();
             Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque *= 0.99f;
+            if (maximum_motor_torque < maxSlowDown)
+            {
+                maximum_motor_torque = maxSlowDown;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque = 400;
         }
     }
 
