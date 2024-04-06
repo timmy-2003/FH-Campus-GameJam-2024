@@ -31,6 +31,7 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
+    public float continuous_downward_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
@@ -55,9 +56,9 @@ public class Golf_Cart_Control : MonoBehaviour
     void Update()
     {
         Check_Wheels_Grounded();
-        Check_Brake();
+        Check_Brake_Input();
+        Check_Brake_Torque();
         Check_Motor();
-        Check_Wheels();
         Check_Airborne_Rotation();
 
         if (beerPowerupEnabled)
@@ -93,10 +94,11 @@ public class Golf_Cart_Control : MonoBehaviour
         else
         {
             wheels_grounded = true;
+            rigidbody.AddForce(-transform.up * continuous_downward_force, ForceMode.Impulse);
         }
     }
 
-    private void Check_Brake()
+    private void Check_Brake_Input()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -108,7 +110,7 @@ public class Golf_Cart_Control : MonoBehaviour
         }
     }
 
-    private void Check_Motor()
+    private void Check_Brake_Torque()
     {
         if (brake == true)
         {
@@ -139,7 +141,7 @@ public class Golf_Cart_Control : MonoBehaviour
         }
     }
 
-    private void Check_Wheels()
+    private void Check_Motor()
     {
         steer_angle = maximum_steer_angle * Input.GetAxis("Horizontal");
 
