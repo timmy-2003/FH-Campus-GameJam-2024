@@ -12,7 +12,7 @@ public class StartLevel : MonoBehaviour
     {
         if (IsInArea())
         {
-            SceneManager.LoadScene("moTest");
+            SceneManager.LoadScene("Timothy");
         }
     }
 
