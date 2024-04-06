@@ -32,8 +32,6 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public GameObject camera_game_object;
-    Vector3 camera_relative_position;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
@@ -65,8 +63,6 @@ public class Golf_Cart_Control : MonoBehaviour
         {
             brake = false;
         }
-
-        camera_game_object.transform.position = transform.position - camera_relative_position;
 
         if (beerPowerupEnabled)
         {
