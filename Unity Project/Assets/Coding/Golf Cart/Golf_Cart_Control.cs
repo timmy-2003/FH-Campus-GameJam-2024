@@ -67,7 +67,7 @@ public class Golf_Cart_Control : MonoBehaviour
             beerPowerupDuration += Time.deltaTime;
             if (beerPowerupDuration >= 3)
             {
-                maximum_motor_torque = 400;
+                maximum_motor_torque = 200;
                 beerPowerupEnabled = false;
                 beerPowerupDuration = 0;
             }
