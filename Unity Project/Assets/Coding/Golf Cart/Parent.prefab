@@ -369,6 +369,7 @@ MonoBehaviour:
   maximum_motor_torque: 200
   maximum_steer_angle: 45
   airborne_rotation_speed: 2.5
+  continuous_downward_force: 200
 --- !u!1 &5959406001321128377
 GameObject:
   m_ObjectHideFlags: 0
