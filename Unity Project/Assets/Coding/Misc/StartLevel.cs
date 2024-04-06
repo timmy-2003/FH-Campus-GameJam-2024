@@ -14,10 +14,6 @@ public class StartLevel : MonoBehaviour
         {
             SceneManager.LoadScene("moTest");
         }
-        else
-        {
-            //Debug.Log("Out");
-        }
     }
 
     private bool IsInArea()
