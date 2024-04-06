@@ -62,7 +62,6 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(maximum_motor_torque);
         Check_Wheels_Grounded();
         Check_Brake_Input();
         Check_Brake_Torque();
