@@ -7401,6 +7401,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5959406001124128822, guid: ee15605664f7aad42b2cf52c9d875210, type: 3}
+      propertyPath: maximum_motor_torque
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee15605664f7aad42b2cf52c9d875210, type: 3}
 --- !u!1001 &1165365340
@@ -14293,18 +14297,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4606829752261704, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.3934827
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606829752261704, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.026603
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606829752261704, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.9580183
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606829752261704, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 91.75
       objectReference: {fileID: 0}
@@ -14344,28 +14336,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23126055246118298, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2cf26b4392d282e49b52a10a0fabf579, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
---- !u!1 &2137575449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1210666825371280, guid: 39aeb83d96ac82246bf5c092137070cb, type: 3}
-  m_PrefabInstance: {fileID: 2137575448}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2137575450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137575449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37268a435f0be934e9a0cdc829378f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boostByMassMultiplier: 18
-  boostDelay: 1
