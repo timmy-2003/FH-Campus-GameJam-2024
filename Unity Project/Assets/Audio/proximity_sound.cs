@@ -9,10 +9,11 @@ public class proximity_sound : MonoBehaviour
     public float range;
     public float midrange;
     public float dx;
+    public float volume;
 
     private Transform _tranform;
     private Vector3 offset;
-    public Audiosource Audio;
+    public AudioSource Audio;
 
     // Start is called before the first frame update
     void Start()
