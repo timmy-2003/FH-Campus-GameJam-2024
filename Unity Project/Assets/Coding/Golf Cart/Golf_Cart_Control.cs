@@ -54,7 +54,6 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(maximum_motor_torque);
         Check_Wheels_Grounded();
         Check_Brake();
         Check_Motor();
@@ -191,7 +190,7 @@ public class Golf_Cart_Control : MonoBehaviour
     {
         if (other.gameObject.tag == "Golfball")
         {
-            Debug.Log("DEAD");
+            //TODO
         }
         else if (other.gameObject.tag == "Beer")
         {
