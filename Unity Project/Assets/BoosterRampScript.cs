@@ -16,11 +16,17 @@ public class BoosterRampScript : MonoBehaviour
 
             // Call the ApplyBoostDelayed method with a delay
             golfCartControl.Stop_Correction_Forces = true;
-            golfCartControl.Started_Boost = true;
-            print("Start");
-            print(other.GetContact(0).normal);
-            golfCartControl.ApplyBoost(boostByMassMultiplier, new Vector3(other.GetContact(0).normal.x, other.GetContact(0).normal.z, other.GetContact(0).normal.y*-1));
+            golfCartControl.ApplyBoost(boostByMassMultiplier);
             //StartCoroutine(ApplyBoostDelayed(golfCartControl, boostDelay));
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        Golf_Cart_Control golfCartControl = other.gameObject.GetComponent<Golf_Cart_Control>();
+        if (golfCartControl != null)
+        {
+            golfCartControl.Started_Boost = true;
         }
     }
 
