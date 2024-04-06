@@ -13,7 +13,7 @@ public class StartForce : MonoBehaviour
 
     private int getStartForce()
     {
-        int startForce = Random.Range(3, 10);
+        int startForce = Random.Range(3000, 10000);
         return Random.Range(1, 100) <= 50 ? startForce : startForce * -1;
     }
 
