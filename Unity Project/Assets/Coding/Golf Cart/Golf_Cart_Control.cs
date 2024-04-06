@@ -55,14 +55,11 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brake = true;
-        }
-        else
-        {
-            brake = false;
-        }
+        Check_Wheels_Grounded();
+        Check_Brake();
+        Check_Motor();
+        Check_Wheels();
+        Check_Airborne_Rotation();
 
         if (beerPowerupEnabled)
         {
@@ -78,10 +75,7 @@ public class Golf_Cart_Control : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Check_Wheels_Grounded();
-        Check_Brake();
-        Check_Wheels();
-        Check_Airborne_Rotation();
+        
     }
 
     private void Check_Wheels_Grounded()
@@ -109,6 +103,18 @@ public class Golf_Cart_Control : MonoBehaviour
     }
 
     private void Check_Brake()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            brake = true;
+        }
+        else
+        {
+            brake = false;
+        }
+    }
+
+    private void Check_Motor()
     {
         if (brake == true)
         {
