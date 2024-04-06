@@ -36,7 +36,7 @@ public class Golf_Cart_Control : MonoBehaviour
     public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
-    private float maxSlowDown = 250;
+    private float maxSlowDown = 200;
 
     private void Awake()
     {
@@ -69,7 +69,7 @@ public class Golf_Cart_Control : MonoBehaviour
             beerPowerupDuration += Time.deltaTime;
             if (beerPowerupDuration >= 3)
             {
-                maximum_motor_torque = 200;
+                maximum_motor_torque = 300;
                 beerPowerupEnabled = false;
                 beerPowerupDuration = 0;
             }
