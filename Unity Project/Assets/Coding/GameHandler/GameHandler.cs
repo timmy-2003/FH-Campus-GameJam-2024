@@ -8,6 +8,8 @@ public class GameHandler : MonoBehaviour
 {
     public float targetTime;
     public TMP_Text timerText;
+    public GameObject finishFlag;
+    public GameObject golfCart;
 
     void Start()
     {
@@ -22,6 +24,11 @@ public class GameHandler : MonoBehaviour
             TimerEnded();
             return;
         }
+
+        if (GameIsFinished())
+        {
+            Debug.Log("Finish");
+        }
  
         int minutes = Mathf.FloorToInt(targetTime / 60f);
         int seconds = Mathf.FloorToInt(targetTime % 60f);
@@ -31,5 +38,16 @@ public class GameHandler : MonoBehaviour
     private void TimerEnded()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private bool GameIsFinished()
+    {
+        float positionX = finishFlag.transform.position.x;
+        float positionZ = finishFlag.transform.position.z;
+
+        float cartPositionX = golfCart.transform.position.x;
+        float cartPositionZ = golfCart.transform.position.z;
+        return cartPositionZ + 10 > positionZ && cartPositionZ - 10 < positionZ
+            && cartPositionX + 10 > positionX && cartPositionX - 10 < positionX;
     }
 }
