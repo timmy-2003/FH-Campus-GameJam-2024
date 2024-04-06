@@ -58,6 +58,7 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(maximum_motor_torque);
         Check_Wheels_Grounded();
         Check_Brake_Input();
         Check_Brake_Torque();
@@ -224,6 +225,26 @@ public class Golf_Cart_Control : MonoBehaviour
         {
             GrantBeerPowerup();
             Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque *= 0.99f;
+            if (maximum_motor_torque < 250)
+            {
+                maximum_motor_torque = 250;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque = 400;
         }
     }
 

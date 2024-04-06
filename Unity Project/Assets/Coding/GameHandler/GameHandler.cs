@@ -7,8 +7,8 @@ using TMPro;
 public class GameHandler : MonoBehaviour
 {
     public float targetTime;
-    public TMP_Text timerText;
-    public GameObject finishFlag;
+    public TMP_Text timerText = null;
+    public GameObject finishFlag = null;
     public GameObject golfCart;
 
     void Start()
@@ -18,30 +18,47 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
-        targetTime -= Time.deltaTime;
-        if (targetTime <= 0f)
-        {
-            TimerEnded();
-            return;
-        }
-
         if (GameIsFinished())
         {
-            Debug.Log("Finish");
+            if (timerText != null)
+            {
+                timerText.text = "[M]enu\n[P]lay Again";
+            }
+            if (Input.GetKey(KeyCode.M))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else if (Input.GetKey(KeyCode.P))
+            {
+                ReloadLevel();
+            }
         }
- 
-        int minutes = Mathf.FloorToInt(targetTime / 60f);
-        int seconds = Mathf.FloorToInt(targetTime % 60f);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        else if (timerText != null)
+        {
+            targetTime -= Time.deltaTime;
+            if (targetTime <= 0f)
+            {
+                ReloadLevel();
+                return;
+            }
+            int minutes = Mathf.FloorToInt(targetTime / 60f);
+            int seconds = Mathf.FloorToInt(targetTime % 60f);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
 
-    private void TimerEnded()
+    private void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private bool GameIsFinished()
     {
+        if (finishFlag == null)
+        {
+            return false;
+        }
+
         float positionX = finishFlag.transform.position.x;
         float positionZ = finishFlag.transform.position.z;
 
