@@ -203,7 +203,7 @@ public class Golf_Cart_Control : MonoBehaviour
     {
         if (other.gameObject.tag == "Golfball")
         {
-            Debug.Log("DEAD");
+            //TODO
         }
         else if (other.gameObject.tag == "Beer")
         {
