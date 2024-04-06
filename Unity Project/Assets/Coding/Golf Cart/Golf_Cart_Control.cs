@@ -32,8 +32,6 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public GameObject camera_game_object;
-    Vector3 camera_relative_position;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
@@ -58,16 +56,11 @@ public class Golf_Cart_Control : MonoBehaviour
     void Update()
     {
         Debug.Log(maximum_motor_torque);
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brake = true;
-        }
-        else
-        {
-            brake = false;
-        }
-
-        camera_game_object.transform.position = transform.position - camera_relative_position;
+        Check_Wheels_Grounded();
+        Check_Brake();
+        Check_Motor();
+        Check_Wheels();
+        Check_Airborne_Rotation();
 
         if (beerPowerupEnabled)
         {
@@ -83,10 +76,7 @@ public class Golf_Cart_Control : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Check_Wheels_Grounded();
-        Check_Brake();
-        Check_Wheels();
-        Check_Airborne_Rotation();
+        
     }
 
     private void Check_Wheels_Grounded()
@@ -114,6 +104,18 @@ public class Golf_Cart_Control : MonoBehaviour
     }
 
     private void Check_Brake()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            brake = true;
+        }
+        else
+        {
+            brake = false;
+        }
+    }
+
+    private void Check_Motor()
     {
         if (brake == true)
         {
