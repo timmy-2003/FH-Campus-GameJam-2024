@@ -13,7 +13,6 @@ public class Axle_Info
 
 /*
 *If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
-*The steering, braking, and slipping has to be calibrated more precisely.
 *When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
 *(Also concerns the above;) When not all the four wheels are on the ground, the golf cart should be able to be rotated or flipped onto its four wheels again.
 */
@@ -72,11 +71,6 @@ public class Golf_Cart_Control : MonoBehaviour
                 beerPowerupDuration = 0;
             }
         }
-    }
-
-    public void FixedUpdate()
-    {
-        
     }
 
     private void Check_Wheels_Grounded()
