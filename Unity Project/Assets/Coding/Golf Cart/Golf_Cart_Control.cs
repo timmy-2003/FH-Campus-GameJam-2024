@@ -35,8 +35,6 @@ public class Golf_Cart_Control : MonoBehaviour
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
-    private bool SoundEnabled = false;
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -57,12 +55,14 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(maximum_motor_torque);
-        Check_Wheels_Grounded();
-        Check_Brake();
-        Check_Motor();
-        Check_Wheels();
-        Check_Airborne_Rotation();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            brake = true;
+        }
+        else
+        {
+            brake = false;
+        }
 
         if (beerPowerupEnabled)
         {
@@ -74,18 +74,14 @@ public class Golf_Cart_Control : MonoBehaviour
                 beerPowerupDuration = 0;
             }
         }
-
-        if (SoundEnabled)
-        {
-            GetComponent<AudioSource>().Play();
-
-
-        }
     }
 
     public void FixedUpdate()
     {
-        
+        Check_Wheels_Grounded();
+        Check_Brake();
+        Check_Wheels();
+        Check_Airborne_Rotation();
     }
 
     private void Check_Wheels_Grounded()
@@ -113,18 +109,6 @@ public class Golf_Cart_Control : MonoBehaviour
     }
 
     private void Check_Brake()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brake = true;
-        }
-        else
-        {
-            brake = false;
-        }
-    }
-
-    private void Check_Motor()
     {
         if (brake == true)
         {
@@ -213,33 +197,6 @@ public class Golf_Cart_Control : MonoBehaviour
             GrantBeerPowerup();
             Destroy(other.gameObject);
         }
-
-
-        if (other.gameObject.tag == "Water")
-        {
-            PlaySound();
-
-
-        }
-
-        if (other.gameObject.tag == "Ramp")
-        {
-            PlaySound();
-
-
-        }
-
-        if (other.gameObject.tag == "Hole")
-        {
-            PlaySound();
-
-
-        }
-
-
-
-
-
     }
 
     private void GrantBeerPowerup()
@@ -249,9 +206,12 @@ public class Golf_Cart_Control : MonoBehaviour
         beerPowerupDuration = 0;
     }
 
-    private void PlaySound()
+    public void ApplyBoost(float boostMultiplier)
     {
-        SoundEnabled = true;
+        // Check if the Rigidbody component is available
+        if (rigidbody != null)
+        {
+            rigidbody.AddForce(transform.forward * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
+        }
     }
-
 }
