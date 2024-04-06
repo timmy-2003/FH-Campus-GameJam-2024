@@ -19,7 +19,7 @@ public class BoosterRampScript : MonoBehaviour
             golfCartControl.Started_Boost = true;
             print("Start");
             print(other.GetContact(0).normal);
-            golfCartControl.ApplyBoost(boostByMassMultiplier, new Vector3(other.GetContact(0).normal.x, other.GetContact(0).normal.z, other.GetContact(0).normal.y*-1));
+            golfCartControl.ApplyBoost(boostByMassMultiplier, new Vector3(other.GetContact(0).normal.x + other.transform.rotation.y, other.GetContact(0).normal.z, -other.GetContact(0).normal.y));
             //StartCoroutine(ApplyBoostDelayed(golfCartControl, boostDelay));
         }
     }
