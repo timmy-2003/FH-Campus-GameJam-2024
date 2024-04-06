@@ -15,7 +15,9 @@ public class Axle_Info
 *If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
 *When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
 *(Also concerns the above;) When not all the four wheels are on the ground, the golf cart should be able to be rotated or flipped onto its four wheels again.
-*/
+*Currently the golf cart wheels are getting pressed into the ground.
+*The car should be able to be reset.
+ */
 
 public class Golf_Cart_Control : MonoBehaviour
 {
@@ -31,7 +33,8 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public float continuous_downward_force;
+    public float cart_correction_force;
+    public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
@@ -59,7 +62,6 @@ public class Golf_Cart_Control : MonoBehaviour
         Check_Brake_Input();
         Check_Brake_Torque();
         Check_Motor();
-        Check_Airborne_Rotation();
 
         if (beerPowerupEnabled)
         {
@@ -71,6 +73,12 @@ public class Golf_Cart_Control : MonoBehaviour
                 beerPowerupDuration = 0;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Apply_Correction_Force();
+        Check_Airborne_Rotation();
     }
 
     private void Check_Wheels_Grounded()
@@ -94,7 +102,25 @@ public class Golf_Cart_Control : MonoBehaviour
         else
         {
             wheels_grounded = true;
-            rigidbody.AddForce(-transform.up * continuous_downward_force, ForceMode.Impulse);
+        }
+    }
+
+    private void Apply_Correction_Force()
+    {
+        foreach (Axle_Info axle_info in axle_infos)
+        {
+            if (!axle_info.left_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+            }
+            if (!axle_info.right_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
+            }
+        }
+        if (wheels_grounded == true)
+        {
+            rigidbody.AddForce(-this.transform.up * cart_correction_force, ForceMode.Force);
         }
     }
 
