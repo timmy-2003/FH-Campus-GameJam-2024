@@ -35,6 +35,8 @@ public class Golf_Cart_Control : MonoBehaviour
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
+    private bool SoundEnabled = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -71,6 +73,13 @@ public class Golf_Cart_Control : MonoBehaviour
                 beerPowerupEnabled = false;
                 beerPowerupDuration = 0;
             }
+        }
+
+        if (SoundEnabled)
+        {
+            GetComponent<AudioSource>().Play();
+
+
         }
     }
 
@@ -204,6 +213,33 @@ public class Golf_Cart_Control : MonoBehaviour
             GrantBeerPowerup();
             Destroy(other.gameObject);
         }
+
+
+        if (other.gameObject.tag == "Water")
+        {
+            PlaySound();
+
+
+        }
+
+        if (other.gameObject.tag == "Ramp")
+        {
+            PlaySound();
+
+
+        }
+
+        if (other.gameObject.tag == "Hole")
+        {
+            PlaySound();
+
+
+        }
+
+
+
+
+
     }
 
     private void GrantBeerPowerup()
@@ -212,4 +248,10 @@ public class Golf_Cart_Control : MonoBehaviour
         beerPowerupEnabled = true;
         beerPowerupDuration = 0;
     }
+
+    private void PlaySound()
+    {
+        SoundEnabled = true;
+    }
+
 }
