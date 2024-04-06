@@ -5,6 +5,7 @@ using UnityEngine;
 public class Camera_Rotation_Control : MonoBehaviour
 {
     public GameObject camera_rotation_object;
+    float y_axis_position_offset;
     Camera camera;
     public float camera_rotation_speed;
     public float horizontal_angle_limit; 
@@ -20,11 +21,12 @@ public class Camera_Rotation_Control : MonoBehaviour
     void Start()
     {
         camera = this.GetComponent<Camera>();
+        y_axis_position_offset = camera_rotation_object.transform.position.y - Golf_Cart_Control.instance.transform.position.y;
     }
 
     void Update()
     {
-        camera_rotation_object.transform.position = new Vector3(Golf_Cart_Control.instance.transform.position.x, camera_rotation_object.transform.position.y, Golf_Cart_Control.instance.transform.position.z);
+        camera_rotation_object.transform.position = new Vector3(Golf_Cart_Control.instance.transform.position.x, Golf_Cart_Control.instance.transform.position.y + y_axis_position_offset, Golf_Cart_Control.instance.transform.position.z);
         camera_rotation_object.transform.eulerAngles = new Vector3(0, Golf_Cart_Control.instance.transform.eulerAngles.y, 0);
         x_axis_rotation += -Input.GetAxis("Mouse Y") * camera_rotation_speed;
         x_axis_rotation = Mathf.Clamp(x_axis_rotation, -vertical_angle_limit, vertical_angle_limit);

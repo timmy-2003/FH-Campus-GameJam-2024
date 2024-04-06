@@ -12,7 +12,6 @@ public class Axle_Info
 }
 
 /*
-*It should be possible to rotate the camera to the sides by ~45-90°.
 *If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
 *The steering, braking, and slipping has to be calibrated more precisely.
 *When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
