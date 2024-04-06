@@ -11,9 +11,17 @@ public class Axle_Info
     public bool steerable;
 }
 
+/*
+*It should be possible to rotate the camera to the sides by ~45-90°.
+*If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
+*The steering, braking, and slipping has to be calibrated more precisely.
+*When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
+*(Also concerns the above;) When not all the four wheels are on the ground, the golf cart should be able to be rotated or flipped onto its four wheels again.
+*/
+
 public class Golf_Cart_Control : MonoBehaviour
 {
-    public static Golf_Cart_Control golf_cart_control_instance { get; private set; }
+    public static Golf_Cart_Control instance { get; private set; }
     Rigidbody rigidbody;
     public Rigidbody Rigidbody { get { return rigidbody; } }
     public List<Axle_Info> axle_infos;
@@ -25,18 +33,16 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public GameObject camera_game_object;
-    Vector3 camera_relative_position;
 
     private void Awake()
     {
-        if (golf_cart_control_instance != null && golf_cart_control_instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            golf_cart_control_instance = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
     }
@@ -44,7 +50,6 @@ public class Golf_Cart_Control : MonoBehaviour
     void Start()
     {
         rigidbody = this.GetComponent<Rigidbody>();
-        camera_relative_position = transform.position - camera_game_object.transform.position;
     }
     
     void Update()
@@ -57,8 +62,6 @@ public class Golf_Cart_Control : MonoBehaviour
         {
             brake = false;
         }
-
-        camera_game_object.transform.position = transform.position - camera_relative_position;
     }
 
     public void FixedUpdate()
