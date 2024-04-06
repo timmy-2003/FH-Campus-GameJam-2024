@@ -33,7 +33,7 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public float continuous_downward_force;
+    public float cart_correction_force;
     public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
@@ -62,7 +62,6 @@ public class Golf_Cart_Control : MonoBehaviour
         Check_Brake_Input();
         Check_Brake_Torque();
         Check_Motor();
-        Check_Airborne_Rotation();
 
         if (beerPowerupEnabled)
         {
@@ -76,6 +75,12 @@ public class Golf_Cart_Control : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        Apply_Correction_Force();
+        Check_Airborne_Rotation();
+    }
+
     private void Check_Wheels_Grounded()
     {
         int grounded_counter = 0;
@@ -85,17 +90,9 @@ public class Golf_Cart_Control : MonoBehaviour
             {
                 grounded_counter++;
             }
-            else
-            {
-                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
-            }
             if (axle_info.right_wheel.isGrounded)
             {
                 grounded_counter++;
-            }
-            else
-            {
-                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
             }
         }
         if (grounded_counter < axle_infos.Count * 2)
@@ -105,7 +102,25 @@ public class Golf_Cart_Control : MonoBehaviour
         else
         {
             wheels_grounded = true;
-            rigidbody.AddForce(-transform.up * continuous_downward_force, ForceMode.Force);
+        }
+    }
+
+    private void Apply_Correction_Force()
+    {
+        foreach (Axle_Info axle_info in axle_infos)
+        {
+            if (!axle_info.left_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+            }
+            if (!axle_info.right_wheel.isGrounded)
+            {
+                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
+            }
+        }
+        if (wheels_grounded == true)
+        {
+            rigidbody.AddForce(-this.transform.up * cart_correction_force, ForceMode.Force);
         }
     }
 

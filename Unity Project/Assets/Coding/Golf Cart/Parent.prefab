@@ -157,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2887247565030727864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.42, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -369,8 +369,8 @@ MonoBehaviour:
   maximum_motor_torque: 400
   maximum_steer_angle: 45
   airborne_rotation_speed: 2.5
-  continuous_downward_force: 150
-  wheel_correction_force: 100
+  cart_correction_force: 350
+  wheel_correction_force: 75
 --- !u!1 &5959406001321128377
 GameObject:
   m_ObjectHideFlags: 0
