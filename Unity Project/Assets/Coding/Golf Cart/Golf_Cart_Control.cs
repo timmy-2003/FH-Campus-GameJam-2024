@@ -27,6 +27,8 @@ public class Golf_Cart_Control : MonoBehaviour
     public float airborne_rotation_speed;
     public GameObject camera_game_object;
     Vector3 camera_relative_position;
+    private bool beerPowerupEnabled = false;
+    private float beerPowerupDuration = 0;
 
     private void Awake()
     {
@@ -59,6 +61,17 @@ public class Golf_Cart_Control : MonoBehaviour
         }
 
         camera_game_object.transform.position = transform.position - camera_relative_position;
+
+        if (beerPowerupEnabled)
+        {
+            beerPowerupDuration += Time.deltaTime;
+            if (beerPowerupDuration >= 3)
+            {
+                maximum_motor_torque = 400;
+                beerPowerupEnabled = false;
+                beerPowerupDuration = 0;
+            }
+        }
     }
 
     public void FixedUpdate()
@@ -177,5 +190,17 @@ public class Golf_Cart_Control : MonoBehaviour
         {
             Debug.Log("DEAD");
         }
+        else if (other.gameObject.tag == "Beer")
+        {
+            GrantBeerPowerup();
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void GrantBeerPowerup()
+    {
+        maximum_motor_torque *= 5;
+        beerPowerupEnabled = true;
+        beerPowerupDuration = 0;
     }
 }

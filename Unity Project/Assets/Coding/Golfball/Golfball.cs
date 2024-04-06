@@ -18,7 +18,7 @@ public class Golfball : MonoBehaviour
 
     void Update()
     {
-        
+        adjustVelocity();
         if (shouldRemoveGolfball())
         {
             removeGolfball();
