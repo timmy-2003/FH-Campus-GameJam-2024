@@ -34,9 +34,13 @@ public class Golf_Cart_Control : MonoBehaviour
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
     public float wheel_correction_force;
+    bool stop_correction_forces = false;
+    public bool Stop_Correction_Forces { get { return stop_correction_forces; } set { stop_correction_forces = value; } }
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
     private float maxSlowDown = 200;
+    bool started_boost = false;
+    public bool Started_Boost {  get { return started_boost; } set {  started_boost = value; } }
 
     private void Awake()
     {
@@ -101,26 +105,34 @@ public class Golf_Cart_Control : MonoBehaviour
         }
         else
         {
+            if (wheels_grounded == false && started_boost == true)
+            {
+                started_boost = false;
+                stop_correction_forces = false;
+            }
             wheels_grounded = true;
         }
     }
 
     private void Apply_Correction_Force()
     {
-        foreach (Axle_Info axle_info in axle_infos)
+        if (stop_correction_forces == false)
         {
-            if (!axle_info.left_wheel.isGrounded)
+            foreach (Axle_Info axle_info in axle_infos)
             {
-                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+                if (!axle_info.left_wheel.isGrounded)
+                {
+                    rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+                }
+                if (!axle_info.right_wheel.isGrounded)
+                {
+                    rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
+                }
             }
-            if (!axle_info.right_wheel.isGrounded)
+            if (wheels_grounded == true)
             {
-                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
+                rigidbody.AddForce(-this.transform.up * motor_torque, ForceMode.Force);
             }
-        }
-        if (wheels_grounded == true)
-        {
-            rigidbody.AddForce(-this.transform.up * maximum_motor_torque, ForceMode.Force);
         }
     }
 
@@ -225,6 +237,11 @@ public class Golf_Cart_Control : MonoBehaviour
             GrantBeerPowerup();
             Destroy(other.gameObject);
         }
+        if (started_boost == true)
+        {
+            started_boost = false;
+            stop_correction_forces = false;
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -259,7 +276,7 @@ public class Golf_Cart_Control : MonoBehaviour
         // Check if the Rigidbody component is available
         if (rigidbody != null)
         {
-            rigidbody.AddForce(transform.forward * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
+            rigidbody.AddForce((rigidbody.transform.forward + new Vector3(0, 0.2f, 0)) * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
         }
     }
 }
