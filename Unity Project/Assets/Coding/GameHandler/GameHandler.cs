@@ -54,6 +54,7 @@ public class GameHandler : MonoBehaviour
 
     private void TimeOver()
     {
+        GetComponent<AudioSource>().Play();
 
     }
 
