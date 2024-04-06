@@ -38,7 +38,7 @@ public class GameHandler : MonoBehaviour
             targetTime -= Time.deltaTime;
             if (targetTime <= 0f)
             {
-                ReloadLevel();
+                TimeOver();
                 return;
             }
             int minutes = Mathf.FloorToInt(targetTime / 60f);
@@ -50,6 +50,11 @@ public class GameHandler : MonoBehaviour
     private void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void TimeOver()
+    {
+
     }
 
     private bool GameIsFinished()
