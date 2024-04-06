@@ -205,4 +205,13 @@ public class Golf_Cart_Control : MonoBehaviour
         beerPowerupEnabled = true;
         beerPowerupDuration = 0;
     }
+
+    public void ApplyBoost(float boostMultiplier)
+    {
+        // Check if the Rigidbody component is available
+        if (rigidbody != null)
+        {
+            rigidbody.AddForce(transform.forward * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
+        }
+    }
 }
