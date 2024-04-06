@@ -78,4 +78,5 @@ crashlytics-build.properties
 /[Ll]ibrary/[Ss]hader[Cc]ache/*
 /[Ll]ogs/*
 /[Uu]ser[Ss]ettings/*
-
+*.vsconfig
+/[Pp]roject[Ss]ettings/*
