@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 97
@@ -2102,6 +2106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -2404,6 +2412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2529,6 +2541,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -2713,6 +2729,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -3624,6 +3644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -3841,6 +3865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -4047,6 +4075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -4115,6 +4147,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -4848,6 +4884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -5198,6 +5238,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -5869,6 +5913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -6010,6 +6058,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -6843,6 +6895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -7208,6 +7264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 81
@@ -7396,6 +7456,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -8340,6 +8404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 80
@@ -8811,6 +8879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 147
@@ -8974,6 +9046,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
+      value: Beer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
       value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
@@ -9207,6 +9283,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -9996,6 +10076,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -10846,6 +10930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 106
@@ -11098,6 +11186,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -11409,6 +11501,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -11888,6 +11984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 66
@@ -12061,6 +12161,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -13239,6 +13343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -13444,6 +13552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -13540,6 +13652,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -16132,6 +16248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16536,6 +16656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -16638,6 +16762,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -16831,6 +16959,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -17136,6 +17268,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -17794,6 +17930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -17862,6 +18002,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -18401,6 +18545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 83
@@ -18651,6 +18799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -18776,6 +18928,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
@@ -19406,6 +19562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
+      objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -19550,6 +19710,10 @@ PrefabInstance:
     - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_Name
       value: Beer (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310611259822616, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
+      propertyPath: m_TagString
+      value: Beer
       objectReference: {fileID: 0}
     - target: {fileID: 4654428850390916, guid: adc1f0e5c2a025b488cad3fb21d4f3b6, type: 3}
       propertyPath: m_RootOrder
