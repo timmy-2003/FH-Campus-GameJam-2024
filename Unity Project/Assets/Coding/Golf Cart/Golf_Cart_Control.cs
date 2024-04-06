@@ -15,7 +15,9 @@ public class Axle_Info
 *If the camera collides with an object in the back, the camera should be positioned forward accordingly so that it is not positioned in the collided object anymore.
 *When steering the golf cart, its sides should slighty lean into the moving sideways direction. This should help with the golf cart tripping over less often.
 *(Also concerns the above;) When not all the four wheels are on the ground, the golf cart should be able to be rotated or flipped onto its four wheels again.
-*/
+*Currently the golf cart wheels are getting pressed into the ground.
+*The car should be able to be reset.
+ */
 
 public class Golf_Cart_Control : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class Golf_Cart_Control : MonoBehaviour
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
     public float continuous_downward_force;
+    public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
 
@@ -82,9 +85,17 @@ public class Golf_Cart_Control : MonoBehaviour
             {
                 grounded_counter++;
             }
+            else
+            {
+                rigidbody.AddForceAtPosition(-axle_info.left_wheel.transform.up * wheel_correction_force, axle_info.left_wheel.transform.position, ForceMode.Impulse);
+            }
             if (axle_info.right_wheel.isGrounded)
             {
                 grounded_counter++;
+            }
+            else
+            {
+                rigidbody.AddForceAtPosition(-axle_info.right_wheel.transform.up * wheel_correction_force, axle_info.right_wheel.transform.position, ForceMode.Impulse);
             }
         }
         if (grounded_counter < axle_infos.Count * 2)
@@ -94,7 +105,7 @@ public class Golf_Cart_Control : MonoBehaviour
         else
         {
             wheels_grounded = true;
-            rigidbody.AddForce(-transform.up * continuous_downward_force, ForceMode.Impulse);
+            rigidbody.AddForce(-transform.up * continuous_downward_force, ForceMode.Force);
         }
     }
 
