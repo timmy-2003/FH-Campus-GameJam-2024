@@ -57,6 +57,7 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(maximum_motor_torque);
         if (Input.GetKey(KeyCode.Space))
         {
             brake = true;
