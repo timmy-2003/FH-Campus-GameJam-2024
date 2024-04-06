@@ -10,6 +10,7 @@ public class GameHandler : MonoBehaviour
     public TMP_Text timerText = null;
     public GameObject finishFlag = null;
     public GameObject golfCart;
+    private bool timerOver = false;
 
     void Start()
     {
@@ -33,11 +34,12 @@ public class GameHandler : MonoBehaviour
                 ReloadLevel();
             }
         }
-        else if (timerText != null)
+        else if (timerText != null && !timerOver)
         {
             targetTime -= Time.deltaTime;
             if (targetTime <= 0f)
             {
+                timerOver = true;
                 TimeOver();
                 return;
             }
@@ -59,6 +61,7 @@ public class GameHandler : MonoBehaviour
 
     private IEnumerator PlayTimeOverSoundAndReloadLevel()
     {
+        Debug.Log("paly");
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(3f);
         ReloadLevel();
