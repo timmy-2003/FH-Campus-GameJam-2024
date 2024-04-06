@@ -54,8 +54,14 @@ public class GameHandler : MonoBehaviour
 
     private void TimeOver()
     {
-        GetComponent<AudioSource>().Play();
+        StartCoroutine(PlayTimeOverSoundAndReloadLevel());
+    }
 
+    private IEnumerator PlayTimeOverSoundAndReloadLevel()
+    {
+        GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(3f);
+        ReloadLevel();
     }
 
     private bool GameIsFinished()
