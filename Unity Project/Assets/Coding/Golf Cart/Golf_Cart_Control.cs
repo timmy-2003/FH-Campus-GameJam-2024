@@ -33,7 +33,6 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public float cart_correction_force;
     public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
@@ -58,6 +57,7 @@ public class Golf_Cart_Control : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(maximum_motor_torque);
         Check_Wheels_Grounded();
         Check_Brake_Input();
         Check_Brake_Torque();
@@ -120,7 +120,7 @@ public class Golf_Cart_Control : MonoBehaviour
         }
         if (wheels_grounded == true)
         {
-            rigidbody.AddForce(-this.transform.up * cart_correction_force, ForceMode.Force);
+            rigidbody.AddForce(-this.transform.up * maximum_motor_torque, ForceMode.Force);
         }
     }
 
@@ -224,6 +224,26 @@ public class Golf_Cart_Control : MonoBehaviour
         {
             GrantBeerPowerup();
             Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque *= 0.99f;
+            if (maximum_motor_torque < 250)
+            {
+                maximum_motor_torque = 250;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SlowDown")
+        {
+            maximum_motor_torque = 400;
         }
     }
 
