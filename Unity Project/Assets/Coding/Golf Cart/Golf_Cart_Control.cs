@@ -36,6 +36,7 @@ public class Golf_Cart_Control : MonoBehaviour
     public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
+    private float maxSlowDown = 250;
 
     private void Awake()
     {
@@ -232,9 +233,9 @@ public class Golf_Cart_Control : MonoBehaviour
         if (other.gameObject.tag == "SlowDown")
         {
             maximum_motor_torque *= 0.99f;
-            if (maximum_motor_torque < 250)
+            if (maximum_motor_torque < maxSlowDown)
             {
-                maximum_motor_torque = 250;
+                maximum_motor_torque = maxSlowDown;
             }
         }
     }
