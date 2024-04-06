@@ -33,7 +33,6 @@ public class Golf_Cart_Control : MonoBehaviour
     bool wheels_grounded;
     public bool Wheels_Grounded { get { return wheels_grounded;  } }
     public float airborne_rotation_speed;
-    public float cart_correction_force;
     public float wheel_correction_force;
     private bool beerPowerupEnabled = false;
     private float beerPowerupDuration = 0;
@@ -120,7 +119,7 @@ public class Golf_Cart_Control : MonoBehaviour
         }
         if (wheels_grounded == true)
         {
-            rigidbody.AddForce(-this.transform.up * cart_correction_force, ForceMode.Force);
+            rigidbody.AddForce(-this.transform.up * maximum_motor_torque, ForceMode.Force);
         }
     }
 
