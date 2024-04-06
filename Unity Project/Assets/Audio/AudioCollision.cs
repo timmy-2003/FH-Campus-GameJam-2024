@@ -18,9 +18,10 @@ public class AudioCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Golf Cart")
+        if (other.gameObject.tag == "Golfcart")
         {
-            GetComponent<AudioSource>().play();
+            Debug.Log("Hit the water");
+            GetComponent<AudioSource>().Play();
         }
     }
 }
