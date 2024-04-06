@@ -40,7 +40,7 @@ public class Golf_Cart_Control : MonoBehaviour
     private float beerPowerupDuration = 0;
     private float maxSlowDown = 200;
     bool started_boost = false;
-    public bool Started_Boost { get { return started_boost; } set { started_boost = value; } }
+    public bool Started_Boost {  get { return started_boost; } set {  started_boost = value; } }
 
     private void Awake()
     {
@@ -105,6 +105,11 @@ public class Golf_Cart_Control : MonoBehaviour
         }
         else
         {
+            if (wheels_grounded == false && started_boost == true)
+            {
+                started_boost = false;
+                stop_correction_forces = false;
+            }
             wheels_grounded = true;
         }
     }
@@ -234,7 +239,6 @@ public class Golf_Cart_Control : MonoBehaviour
         }
         if (started_boost == true)
         {
-            print("Reset");
             started_boost = false;
             stop_correction_forces = false;
         }
@@ -267,12 +271,12 @@ public class Golf_Cart_Control : MonoBehaviour
         beerPowerupDuration = 0;
     }
 
-    public void ApplyBoost(float boostMultiplier, Vector3 direction)
+    public void ApplyBoost(float boostMultiplier)
     {
         // Check if the Rigidbody component is available
         if (rigidbody != null)
         {
-            rigidbody.AddForce((direction) * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
+            rigidbody.AddForce((rigidbody.transform.forward + new Vector3(0, 0.2f, 0)) * rigidbody.mass * boostMultiplier, ForceMode.Impulse);
         }
     }
 }
