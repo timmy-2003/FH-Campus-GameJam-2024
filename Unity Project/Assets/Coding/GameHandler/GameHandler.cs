@@ -28,6 +28,7 @@ public class GameHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetCar();
+            targetTime = 121;
         }
 
         if (GameIsFinished())

@@ -19170,7 +19170,7 @@ PrefabInstance:
       objectReference: {fileID: 1013880591}
     - target: {fileID: 8424380392482923770, guid: f8f1c06d919904e49bb348e730204a72, type: 3}
       propertyPath: spawnRate
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8424380392482923771, guid: f8f1c06d919904e49bb348e730204a72, type: 3}
       propertyPath: m_Name
